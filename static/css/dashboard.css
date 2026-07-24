@@ -1,0 +1,344 @@
+/* Dashboard Specific Styles */
+
+.dashboard-container {
+    padding-top: 100px;
+    padding-bottom: 60px;
+    min-height: 100vh;
+    background: #F9FAFB;
+}
+
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.dashboard-header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    color: #1F2937;
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-header p {
+    font-size: 1.125rem;
+    color: #6B7280;
+}
+
+.dashboard-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+/* Brands Grid */
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Brand Card */
+.brand-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.brand-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.brand-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 1rem;
+}
+
+.brand-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1F2937;
+    margin: 0;
+}
+
+.brand-industry {
+    display: inline-block;
+    background: linear-gradient(135deg, #2563EB, #7C3AED);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.brand-card-body {
+    margin-top: 1rem;
+}
+
+.brand-slogan {
+    font-style: italic;
+    color: #6B7280;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.brand-colors {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.brand-color-swatch {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: 2px solid #E5E7EB;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.brand-color-swatch:hover {
+    transform: scale(1.1);
+}
+
+.brand-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #E5E7EB;
+}
+
+.brand-date {
+    font-size: 0.875rem;
+    color: #9CA3AF;
+}
+
+.brand-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-icon {
+    background: transparent;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.3s;
+    font-size: 1.25rem;
+}
+
+.btn-icon:hover {
+    background: #F3F4F6;
+}
+
+/* Loading State */
+.loading-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    grid-column: 1 / -1;
+}
+
+.loading-state .loader {
+    margin: 0 auto 1rem;
+}
+
+.loading-state p {
+    color: #6B7280;
+    font-size: 1.125rem;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    grid-column: 1 / -1;
+}
+
+.empty-icon {
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+}
+
+.empty-state h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    color: #1F2937;
+    margin-bottom: 1rem;
+}
+
+.empty-state p {
+    color: #6B7280;
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+}
+
+/* Modal */
+.brand-modal-content {
+    max-width: 800px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #E5E7EB;
+}
+
+.modal-header h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.75rem;
+    color: #1F2937;
+}
+
+.modal-close {
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #6B7280;
+    transition: color 0.3s;
+}
+
+.modal-close:hover {
+    color: #EF4444;
+}
+
+/* Delete Modal */
+.delete-modal-content {
+    max-width: 500px;
+    text-align: center;
+}
+
+.delete-modal-content h2 {
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 1rem;
+}
+
+.delete-modal-content p {
+    color: #6B7280;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.delete-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn-danger {
+    background: #EF4444;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-danger:hover {
+    background: #DC2626;
+}
+
+/* Brand Detail in Modal */
+.brand-detail-section {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.brand-detail-section:last-child {
+    border-bottom: none;
+}
+
+.brand-detail-section h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25rem;
+    color: #1F2937;
+    margin-bottom: 1rem;
+}
+
+.brand-detail-colors {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.detail-color-item {
+    text-align: center;
+}
+
+.detail-color-box {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    margin-bottom: 0.5rem;
+    border: 2px solid #E5E7EB;
+}
+
+.detail-color-label {
+    font-size: 0.875rem;
+    color: #6B7280;
+    font-weight: 600;
+}
+
+.brand-guidelines-preview {
+    background: #F9FAFB;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+.guidelines-section {
+    margin-bottom: 1.5rem;
+}
+
+.guidelines-section h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: #374151;
+    margin-bottom: 0.5rem;
+}
+
+.guidelines-section p,
+.guidelines-section li {
+    font-size: 0.95rem;
+    color: #6B7280;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .brands-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .dashboard-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .brand-modal-content {
+        width: 95%;
+        padding: 1.5rem;
+    }
+}

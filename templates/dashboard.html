@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Brand Forge AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>🔥 Brand Forge AI</h1>
+            </div>
+            <div class="nav-links">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/#demo" class="nav-link">Create Brand</a>
+                <a href="/dashboard" class="nav-link active">Dashboard</a>
+                <button class="btn-primary" onclick="window.location.href='/'">+ New Brand</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-container">
+        <div class="container">
+            <div class="dashboard-header">
+                <h1>Your Brand Projects</h1>
+                <p>Manage and export your AI-generated brand identities</p>
+            </div>
+
+            <div class="dashboard-actions">
+                <button class="btn-primary" onclick="window.location.href='/'">
+                    ➕ Create New Brand
+                </button>
+                <button class="btn-secondary" onclick="refreshBrands()">
+                    🔄 Refresh
+                </button>
+            </div>
+
+            <!-- Brands Grid -->
+            <div id="brands-container" class="brands-grid">
+                <!-- Loading State -->
+                <div id="loading-state" class="loading-state">
+                    <div class="loader"></div>
+                    <p>Loading your brands...</p>
+                </div>
+            </div>
+
+            <!-- Empty State -->
+            <div id="empty-state" class="empty-state" style="display: none;">
+                <div class="empty-icon">🎨</div>
+                <h2>No brands yet</h2>
+                <p>Start creating your first AI-powered brand identity today!</p>
+                <button class="btn-primary" onclick="window.location.href='/'">
+                    Create Your First Brand
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Brand Detail Modal -->
+    <div id="brand-modal" class="modal">
+        <div class="modal-content brand-modal-content">
+            <div class="modal-header">
+                <h2 id="modal-brand-name">Brand Details</h2>
+                <button class="modal-close" onclick="closeModal()">×</button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Brand details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="delete-modal" class="modal">
+        <div class="modal-content delete-modal-content">
+            <h2>⚠️ Confirm Delete</h2>
+            <p>Are you sure you want to delete this brand? This action cannot be undone.</p>
+            <div class="delete-actions">
+                <button class="btn-secondary" onclick="closeDeleteModal()">Cancel</button>
+                <button class="btn-danger" id="confirm-delete-btn">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Forge AI - AI-Powered Branding Platform</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>🔥 Brand Forge AI</h1>
+            </div>
+            <div class="nav-links">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#how-it-works" class="nav-link">How It Works</a>
+                <a href="#demo" class="nav-link">Try Demo</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <button class="btn-primary" onclick="scrollToSection('demo')">Get Started</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Forge Your Brand Identity with AI</h1>
+                <p class="hero-subtitle">Create compelling brand names, logos, color palettes, and complete brand guidelines in minutes with our AI-powered platform.</p>
+                <div class="hero-cta">
+                    <button class="btn-primary btn-large" onclick="scrollToSection('demo')">Start Building Your Brand</button>
+                    <button class="btn-secondary btn-large" onclick="watchDemo()">Watch Demo</button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">10,000+</span>
+                        <span class="stat-label">Brands Created</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Satisfaction Rate</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">5 Min</span>
+                        <span class="stat-label">Average Time</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Powerful AI-Driven Features</h2>
+            <p class="section-subtitle">Everything you need to build a memorable brand identity</p>
+            
+            <div class="features-grid">
+                <div class="feature-card" onclick="showFeature('brand-names')">
+                    <div class="feature-icon">🏷️</div>
+                    <h3>AI Brand Name Generator</h3>
+                    <p>Generate creative, memorable brand names tailored to your industry and style preferences.</p>
+                </div>
+                
+                <div class="feature-card" onclick="showFeature('color-palette')">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Color Palette Generator</h3>
+                    <p>Get scientifically-backed color schemes that evoke the right emotions for your brand.</p>
+                </div>
+                
+                <div class="feature-card" onclick="showFeature('logo-concepts')">
+                    <div class="feature-icon">✏️</div>
+                    <h3>Logo Concept Generator</h3>
+                    <p>Receive multiple logo design concepts with detailed implementation guidelines.</p>
+                </div>
+                
+                <div class="feature-card" onclick="showFeature('slogan-generator')">
+                    <div class="feature-icon">💬</div>
+                    <h3>Slogan & Tagline Generator</h3>
+                    <p>Create catchy, memorable slogans that capture your brand's essence and value proposition.</p>
+                </div>
+                
+                <div class="feature-card" onclick="showFeature('competitor-analysis')">
+                    <div class="feature-icon">📊</div>
+                    <h3>Competitor Analysis</h3>
+                    <p>Gain AI-driven insights into competitor branding strategies and identify market gaps.</p>
+                </div>
+                
+                <div class="feature-card" onclick="showFeature('brand-guidelines')">
+                    <div class="feature-icon">📋</div>
+                    <h3>Brand Guidelines Generator</h3>
+                    <p>Automatically generate comprehensive brand style guides for consistent messaging.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Demo Section -->
+    <section id="demo" class="demo">
+        <div class="container">
+            <h2 class="section-title">Try It Yourself</h2>
+            <p class="section-subtitle">Experience the power of AI-driven brand creation</p>
+            
+            <div class="demo-container">
+                <div class="demo-sidebar">
+                    <button class="demo-tab active" onclick="switchTab('brand-names')">🔤 Brand Names</button>
+                    <button class="demo-tab" onclick="switchTab('color-palette')">🎨 Colors</button>
+                    <button class="demo-tab" onclick="switchTab('logo-concepts')">✏️ Logos</button>
+                    <button class="demo-tab" onclick="switchTab('slogan-generator')">💬 Slogans</button>
+                    <button class="demo-tab" onclick="switchTab('competitor-analysis')">📊 Analysis</button>
+                    <button class="demo-tab" onclick="switchTab('brand-guidelines')">📋 Guidelines</button>
+                </div>
+                
+                <div class="demo-content">
+                    <!-- Brand Name Generator -->
+                    <div id="brand-names-panel" class="panel active">
+                        <h3>AI Brand Name Generator</h3>
+                        <div class="input-group">
+                            <label>Industry</label>
+                            <select id="industry-select" class="input-field">
+                                <option value="technology">Technology</option>
+                                <option value="healthcare">Healthcare</option>
+                                <option value="finance">Finance</option>
+                                <option value="education">Education</option>
+                                <option value="retail">Retail</option>
+                                <option value="food">Food & Beverage</option>
+                                <option value="travel">Travel</option>
+                                <option value="fitness">Fitness</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Keywords (comma-separated)</label>
+                            <input type="text" id="keywords-input" class="input-field" placeholder="e.g., innovation, cloud, smart">
+                        </div>
+                        <div class="input-group">
+                            <label>Style Preference</label>
+                            <div class="style-options">
+                                <label class="style-option">
+                                    <input type="radio" name="style" value="modern" checked>
+                                    <span>Modern</span>
+                                </label>
+                                <label class="style-option">
+                                    <input type="radio" name="style" value="classic">
+                                    <span>Classic</span>
+                                </label>
+                                <label class="style-option">
+                                    <input type="radio" name="style" value="playful">
+                                    <span>Playful</span>
+                                </label>
+                            </div>
+                        </div>
+                        <button class="btn-primary" onclick="generateBrandNames()">Generate Brand Names</button>
+                        
+                        <div id="brand-names-results" class="results-container"></div>
+                    </div>
+                    
+                    <!-- Color Palette Generator -->
+                    <div id="color-palette-panel" class="panel">
+                        <h3>Color Palette Generator</h3>
+                        <div class="input-group">
+                            <label>Industry</label>
+                            <select id="color-industry-select" class="input-field">
+                                <option value="technology">Technology</option>
+                                <option value="healthcare">Healthcare</option>
+                                <option value="finance">Finance</option>
+                                <option value="education">Education</option>
+                                <option value="retail">Retail</option>
+                                <option value="food">Food & Beverage</option>
+                                <option value="travel">Travel</option>
+                                <option value="fitness">Fitness</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Mood</label>
+                            <select id="mood-select" class="input-field">
+                                <option value="professional">Professional</option>
+                                <option value="playful">Playful</option>
+                                <option value="luxury">Luxury</option>
+                                <option value="modern">Modern</option>
+                                <option value="trustworthy">Trustworthy</option>
+                                <option value="energetic">Energetic</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Primary Color (Optional)</label>
+                            <input type="color" id="primary-color-input" class="input-field color-input" value="#3B82F6">
+                        </div>
+                        <button class="btn-primary" onclick="generateColorPalette()">Generate Palette</button>
+                        
+                        <div id="color-palette-results" class="results-container"></div>
+                    </div>
+                    
+                    <!-- Logo Concept Generator -->
+                    <div id="logo-concepts-panel" class="panel">
+                        <h3>Logo Concept Generator</h3>
+                        <div class="input-group">
+                            <label>Brand Name</label>
+                            <input type="text" id="logo-brand-name" class="input-field" placeholder="Enter your brand name">
+                        </div>
+                        <div class="input-group">
+                            <label>Industry</label>
+                            <select id="logo-industry-select" class="input-field">
+                                <option value="technology">Technology</option>
+                                <option value="healthcare">Healthcare</option>
+                                <option value="finance">Finance</option>
+                                <option value="education">Education</option>
+                                <option value="retail">Retail</option>
+                                <option value="food">Food & Beverage</option>
+                                <option value="travel">Travel</option>
+                                <option value="fitness">Fitness</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Design Style</label>
+                            <select id="logo-style-select" class="input-field">
+                                <option value="minimalist">Minimalist</option>
+                                <option value="modern">Modern</option>
+                                <option value="classic">Classic</option>
+                                <option value="playful">Playful</option>
+                                <option value="abstract">Abstract</option>
+                                <option value="vintage">Vintage</option>
+                            </select>
+                        </div>
+                        <button class="btn-primary" onclick="generateLogoConcepts()">Generate Logo Concepts</button>
+                        
+                        <div id="logo-concepts-results" class="results-container"></div>
+                    </div>
+                    
+                    <!-- Slogan Generator -->
+                    <div id="slogan-generator-panel" class="panel">
+                        <h3>Slogan & Tagline Generator</h3>
+                        <div class="input-group">
+                            <label>Brand Name</label>
+                            <input type="text" id="slogan-brand-name" class="input-field" placeholder="Enter your brand name">
+                        </div>
+                        <div class="input-group">
+                            <label>Industry</label>
+                            <select id="slogan-industry-select" class="input-field">
+                                <option value="technology">Technology</option>
+                                <option value="healthcare">Healthcare</option>
+                                <option value="finance">Finance</option>
+                                <option value="education">Education</option>
+                                <option value="retail">Retail</option>
+                                <option value="food">Food & Beverage</option>
+                                <option value="travel">Travel</option>
+                                <option value="fitness">Fitness</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Brand Values (comma-separated)</label>
+                            <input type="text" id="values-input" class="input-field" placeholder="e.g., innovation, trust, quality">
+                        </div>
+                        <button class="btn-primary" onclick="generateSlogans()">Generate Slogans</button>
+                        
+                        <div id="slogan-results" class="results-container"></div>
+                    </div>
+                    
+                    <!-- Competitor Analysis -->
+                    <div id="competitor-analysis-panel" class="panel">
+                        <h3>Competitor Analysis</h3>
+                        <div class="input-group">
+                            <label>Industry</label>
+                            <select id="analysis-industry-select" class="input-field">
+                                <option value="technology">Technology</option>
+                                <option value="healthcare">Healthcare</option>
+                                <option value="finance">Finance</option>
+                                <option value="education">Education</option>
+                                <option value="retail">Retail</option>
+                                <option value="food">Food & Beverage</option>
+                                <option value="travel">Travel</option>
+                                <option value="fitness">Fitness</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Competitors (comma-separated)</label>
+                            <input type="text" id="competitors-input" class="input-field" placeholder="e.g., Competitor A, Competitor B, Competitor C">
+                        </div>
+                        <button class="btn-primary" onclick="analyzeCompetitors()">Analyze Competitors</button>
+                        
+                        <div id="competitor-results" class="results-container"></div>
+                    </div>
+                    
+                    <!-- Brand Guidelines -->
+                    <div id="brand-guidelines-panel" class="panel">
+                        <h3>Brand Guidelines Generator</h3>
+                        <div class="input-group">
+                            <label>Brand Name</label>
+                            <input type="text" id="guidelines-brand-name" class="input-field" placeholder="Enter your brand name">
+                        </div>
+                        <div class="input-group">
+                            <label>Industry</label>
+                            <select id="guidelines-industry-select" class="input-field">
+                                <option value="technology">Technology</option>
+                                <option value="healthcare">Healthcare</option>
+                                <option value="finance">Finance</option>
+                                <option value="education">Education</option>
+                                <option value="retail">Retail</option>
+                                <option value="food">Food & Beverage</option>
+                                <option value="travel">Travel</option>
+                                <option value="fitness">Fitness</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Selected Slogan</label>
+                            <input type="text" id="guidelines-slogan" class="input-field" placeholder="Your brand slogan">
+                        </div>
+                        <div class="input-group">
+                            <label>Brand Voice</label>
+                            <select id="voice-select" class="input-field">
+                                <option value="professional">Professional</option>
+                                <option value="friendly">Friendly</option>
+                                <option value="innovative">Innovative</option>
+                                <option value="luxury">Luxury</option>
+                                <option value="playful">Playful</option>
+                            </select>
+                        </div>
+                        <button class="btn-primary" onclick="generateGuidelines()">Generate Guidelines</button>
+                        
+                        <div id="guidelines-results" class="results-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">Three simple steps to your new brand identity</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Input Your Preferences</h3>
+                    <p>Tell us about your industry, style preferences, and brand values through our intuitive interface.</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>AI Processing</h3>
+                    <p>Our advanced AI algorithms analyze thousands of successful brands to generate personalized suggestions.</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Review & Refine</h3>
+                    <p>Browse through AI-generated options, select your favorites, and export your complete brand package.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Brand Forge AI</h4>
+                    <p>Empowering businesses to create compelling brand identities with the power of AI.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Features</h4>
+                    <ul>
+                        <li><a href="#demo">Brand Name Generator</a></li>
+                        <li><a href="#demo">Color Palette Generator</a></li>
+                        <li><a href="#demo">Logo Concept Generator</a></li>
+                        <li><a href="#demo">Brand Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Access</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Brand Forge AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Modal -->
+    <div id="loading-modal" class="modal">
+        <div class="modal-content">
+            <div class="loader"></div>
+            <p>AI is working its magic...</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
